@@ -1,0 +1,47 @@
+[
+  {
+    "personalId": "12128810234",
+    "firstName": "Alex",
+    "lastName": "Korn",
+    "gender": "MALE",
+    "dateOfBirth": "1982-10-12",
+    "phoneNumber": "+37122113345",
+    "email": "amamoka@mail.com"
+  },
+  {
+    "personalId": "15126810734",
+    "firstName": "Oleg",
+    "lastName": "Basnin",
+    "gender": "MALE",
+    "dateOfBirth": "1980-11-17",
+    "phoneNumber": "+37142163345",
+    "email": "olbas@gmail.com"
+  },
+  {
+    "personalId": "22178510237",
+    "firstName": "Santa",
+    "lastName": "Veltere",
+    "gender": "FEMALE",
+    "dateOfBirth": "1989-01-10",
+    "phoneNumber": "+37187690542",
+    "email": "santa-veltere@inbox.lv"
+  },
+  {
+    "personalId": "12112810265",
+    "firstName": "Janis",
+    "lastName": "Ozolins",
+    "gender": "MALE",
+    "dateOfBirth": "1995-09-28",
+    "phoneNumber": "+37155113398",
+    "email": "info@ergo.lv"
+  },
+  {
+    "personalId": "56128780239",
+    "firstName": "Olga",
+    "lastName": "Li",
+    "gender": "FEMALE",
+    "dateOfBirth": "2001-05-18",
+    "phoneNumber": "+37122113345",
+    "email": "li.olga@gmail.com"
+  }
+]

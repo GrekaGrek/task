@@ -1,0 +1,26 @@
+spring:
+  mvc:
+    format:
+      date: yyyy-MM-dd
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  datasource:
+    url: jdbc:h2:mem:testdb
+  sql:
+    init:
+      mode: always
+      data-locations: classpath:db/import.sql
+  jpa:
+    defer-datasource-initialization: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+  jackson:
+    serialization:
+      write_dates_as_timestamps: false
+  logging:
+    level:
+      root: info
+    path: /home/logs
