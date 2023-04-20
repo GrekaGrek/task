@@ -1,19 +1,20 @@
 package com.ergo.task.domain;
 
+import com.ergo.task.domain.audit.Auditable;
 import com.ergo.task.enums.PersonGender;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.Table;
-
 import java.time.LocalDate;
 import java.util.Objects;
 import java.util.StringJoiner;
 
 @Entity
 @Table(name = "persons")
-public class PersonDataEntity extends BaseEntity {
+public class PersonDataEntity extends Auditable {
 
     @Column(name = "personal_id", nullable = false)
     private String personalId;

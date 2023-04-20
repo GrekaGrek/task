@@ -1,5 +1,6 @@
 package com.ergo.task.domain.audit;
 
+import com.ergo.task.domain.BaseEntity;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -13,7 +14,7 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class Auditable {
+public abstract class Auditable extends BaseEntity {
 
     @CreatedBy
     @Column(name = "created_by", updatable = false)
@@ -28,7 +29,7 @@ public class Auditable {
     private String lastModifiedBy;
 
     @LastModifiedDate
-    @Column(name = "last_modified", updatable = false)
+    @Column(name = "last_modified_date", updatable = false)
     private LocalDateTime lastModifiedDate;
 
     public String getCreatedBy() {

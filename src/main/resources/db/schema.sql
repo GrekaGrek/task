@@ -1,4 +1,4 @@
-create table PERSON (
+create table PERSONS (
     id integer not null auto_increment,
     personal_id varchar(11) not null,
     first_name varchar(50) not null,

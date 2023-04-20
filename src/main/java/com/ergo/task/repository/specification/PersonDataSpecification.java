@@ -5,6 +5,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.criteria.Predicate;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class PersonDataSpecification {
                 predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get(FIRST_NAME), filter.firstName())));
             }
             if (filter.dateOfBirth() != null) {
-                predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get(DATE_OF_BIRTH), filter.dateOfBirth())));
+                predicates.add(criteriaBuilder.and(criteriaBuilder.equal(root.get(DATE_OF_BIRTH), LocalDate.parse(filter.dateOfBirth()))));
             }
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
         };

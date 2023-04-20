@@ -71,7 +71,7 @@ class PersonDataSpecificationTest {
 
     @Test
     void findPersonByDateOfBirth() {
-        PersonSearchCriteria filter = new PersonSearchCriteria(null, DATE_OF_BIRTH);
+        PersonSearchCriteria filter = new PersonSearchCriteria(null, DATE_OF_BIRTH.toString());
 
         Path namePathMock = mock(Path.class);
         when(mockRoot.get(ATTRIBUTE_DATE)).thenReturn(namePathMock);
@@ -97,7 +97,7 @@ class PersonDataSpecificationTest {
     }
     @Test
     void findPersonByFirstNameAndDateOfBirth() {
-        PersonSearchCriteria filter = new PersonSearchCriteria(NAME, DATE_OF_BIRTH);
+        PersonSearchCriteria filter = new PersonSearchCriteria(NAME, DATE_OF_BIRTH.toString());
 
         Path namePathMock = mock(Path.class);
         when(mockRoot.get(ATTRIBUTE_NAME)).thenReturn(namePathMock);
