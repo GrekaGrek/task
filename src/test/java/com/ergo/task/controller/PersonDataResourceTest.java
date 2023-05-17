@@ -171,14 +171,15 @@ class PersonDataResourceTest {
     }
 
     private PersonDataDTO response() {
-        return PersonDataDTO.builder()
-                .personalId("")
-                .firstName("Oleg")
-                .lastName("")
-                .dateOfBirth(LocalDate.of(1999, 12, 12))
-                .gender(MALE)
-                .phoneNumber("")
-                .email("")
-                .build();
+        return new PersonDataDTO.Builder()
+                .with(b -> {
+                    b.personalId = "";
+                    b.firstName = "Oleg";
+                    b.lastName = "";
+                    b.dateOfBirth = LocalDate.of(1999, 12, 12);
+                    b.gender = MALE;
+                    b.phoneNumber = "";
+                    b.email = "";
+                }).build();
     }
 }

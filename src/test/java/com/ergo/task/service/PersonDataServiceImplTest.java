@@ -130,7 +130,7 @@ class PersonDataServiceImplTest {
         when(mockRepository.save(entity)).thenReturn(entity);
         when(mockMapper.mapToDTO(entity)).thenReturn(item);
 
-       var actualUpdate = service.updatePersonData(item, id);
+        var actualUpdate = service.updatePersonData(item, id);
 
         assertThat(actualUpdate)
                 .isNotNull()
@@ -143,11 +143,10 @@ class PersonDataServiceImplTest {
 
     @Test
     void updatePersonDataFailedIdIsNull() {
-        var id = 1L;
         var entity = createEntity();
         var item = createDTO();
 
-        assertThatThrownBy(() -> service.updatePersonData(item, id)).isInstanceOf(NullPointerException.class);
+        assertThatThrownBy(() -> service.updatePersonData(item, null)).isInstanceOf(NullPointerException.class);
 
         verify(mockRepository, never()).save(entity);
         verify(mockMapper, never()).mapToDTO(entity);
@@ -175,14 +174,16 @@ class PersonDataServiceImplTest {
     }
 
     private PersonDataDTO createDTO() {
-        return PersonDataDTO.builder()
-                .personalId(PERSONAL_ID)
-                .firstName(FIRST_NAME)
-                .lastName(LAST_NAME)
-                .dateOfBirth(DATE_OF_BIRTH)
-                .gender(MALE)
-                .phoneNumber(PHONE_NUMBER)
-                .email(EMAIL)
+        return new PersonDataDTO.Builder()
+                .with(b -> {
+                    b.personalId = PERSONAL_ID;
+                    b.firstName = FIRST_NAME;
+                    b.lastName = LAST_NAME;
+                    b.dateOfBirth = DATE_OF_BIRTH;
+                    b.gender = MALE;
+                    b.phoneNumber = PHONE_NUMBER;
+                    b.email = EMAIL;
+                })
                 .build();
     }
 }

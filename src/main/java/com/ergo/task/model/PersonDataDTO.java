@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
+import java.util.function.Consumer;
 
 public record PersonDataDTO(
         @NotBlank
@@ -45,54 +46,18 @@ public record PersonDataDTO(
                 "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$")
         String email
 ) {
-    public static Builder builder() {
-        return new Builder();
-    }
 
     public static final class Builder {
-        private String personalId;
-        private String firstName;
-        private String lastName;
-        private PersonGender gender;
-        private LocalDate dateOfBirth;
-        private String phoneNumber;
-        private String email;
+        public String personalId;
+        public String firstName;
+        public String lastName;
+        public PersonGender gender;
+        public LocalDate dateOfBirth;
+        public String phoneNumber;
+        public String email;
 
-        private Builder() {
-        }
-
-        public Builder personalId(String personalId) {
-            this.personalId = personalId;
-            return this;
-        }
-
-        public Builder firstName(String firstName) {
-            this.firstName = firstName;
-            return this;
-        }
-
-        public Builder lastName(String lastName) {
-            this.lastName = lastName;
-            return this;
-        }
-
-        public Builder gender(PersonGender gender) {
-            this.gender = gender;
-            return this;
-        }
-
-        public Builder dateOfBirth(LocalDate dateOfBirth) {
-            this.dateOfBirth = dateOfBirth;
-            return this;
-        }
-
-        public Builder phoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-            return this;
-        }
-
-        public Builder email(String email) {
-            this.email = email;
+        public Builder with(Consumer<Builder> builderConsumer) {
+            builderConsumer.accept(this);
             return this;
         }
 
